@@ -1,0 +1,11 @@
+<br>
+<ul id="vine_grid">
+<% @vines.each do |vine| %>
+	<li class="grid_element">
+		<%= link_to((image_tag vine.thumbnail, :class => "grid_image"), user_path(current_user.username, :year => vine.filmed.year, :month => vine.filmed.month, :day => vine.filmed.day)) %>
+		<%= link_to 'Delete', vine_path(vine), :confirm => 'Are you sure?', :method => :delete %>
+	</li>
+<% end %>
+</ul>
+
+<div class="clearfooter"></div>

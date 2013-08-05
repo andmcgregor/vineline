@@ -1,0 +1,14 @@
+<% if current_user %>
+
+<% end %>
+
+<div class="welcome_page">
+	<div class="welcome_left">
+		<h1>Your vines in a timeline!</h1>
+		<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.vineline.io" data-text="Turn your vines into a timeline with @vinelineapp">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	</div>
+	<div class="welcome_right">
+		<%= video_tag "https://s3-us-west-2.amazonaws.com/vineline/vineline.mp4", :size => "500x500", :controls => false, :loop => true, :autoplay => true, :id => "home_page_video", :muted => "muted" %>
+	</div>
+</div>

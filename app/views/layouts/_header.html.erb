@@ -1,0 +1,16 @@
+<div class="header">
+	<div class="container">
+		<ul id ="controls">
+			<li id="logo"><%= link_to "Vineline", root_url %></a></li>
+			<% if current_user %>
+			<li id="profile_link"><%= link_to "Log out", log_out_path %></li>
+			<li id="profile_link"><%= link_to "Edit", edit_path %></li>
+			<li id="profile_link"><%= link_to "Add", add_path %></li>
+			<li id="profile_link"><%= link_to current_user.username, user_path(current_user.username) %></li>
+			<li id="profile_link"><%= link_to(image_tag(current_user.avatar), user_path(current_user.username)) %></li>
+			<% else %>
+			<li id="profile_link"><%= link_to "Sign in with Twitter", "auth/twitter" %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>

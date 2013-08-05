@@ -1,0 +1,235 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #F1F1EC;
+	font-family: "ff-tisa-web-pro", Georgia, Times, serif;
+	min-height: 100%;
+	margin-bottom: -20px;
+}
+a {
+	color: #00a47a;
+	&:visited {
+		color: #00a47a;
+	}
+}
+.profile_page {
+	margin-top: 20px;
+	width: 950px;
+	height: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.right {
+	width: 330px;
+	height: 578px;
+	padding: 10px;
+	position: relative;
+	left: 600px;
+	text-align: center;
+	background-color: #fff;
+	border-top: 1px solid #D7D6D1;
+	border-right: 1px solid #D7D6D1;
+	border-bottom: 1px solid #D7D6D1;
+	-moz-border-radius-topright: 10px;
+	border-top-right-radius: 10px;
+	-moz-border-radius-bottomright: 10px;
+	border-bottom-right-radius: 10px;
+	color: #a0a0a0;
+	p {
+		font-style: italic;
+		line-height: 1.2;
+		font-weight: 400;
+		color: #a0a0a0;
+		width: 95%;
+	}
+}
+.left {
+	width: 600px;
+	height: 600px;
+	background: #000;
+	position: absolute;
+	video {
+		width: 600px;
+		height: 600px;
+		position: absolute;
+	}
+}
+li.selected {
+	font-weight:bold;
+	background: #00a47a;
+	color: #fff;
+	padding-right: 3px;
+	padding-left: 3px;
+	a {
+		color: #fff;
+		&:visited {
+			color: #fff;
+		}
+	}
+}
+li.vine_exists {
+	font-weight:bold;
+	color: #666665;
+	a {
+		color: #666665;
+	}
+}
+
+ul#years, ul#months, ul#days {
+	padding: 0;
+	margin: 0;
+	margin-top: 20px;
+	li {
+		display: inline;
+		padding-left: 5px;
+		padding-right: 5px;
+		a {
+			text-decoration: none;
+		}
+	}
+}
+#avatar img {
+	width: 50px;
+	height: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	background-size: 50px;
+	background-repeat: no-repeat;
+	margin-top: 25px;
+}
+h2 {
+	font-family: "freight-sans-pro", "Myriad Pro", Verdana, sans-serif;
+	color: #333332;
+	font-size: 25px;
+	font-weight: 600;
+	text-decoration: none;
+	line-height: 30px;
+}
+
+hr {
+	border: 0;
+	width: 95%;
+	background-color: #D7D6D1;
+	height: 1px;
+}
+
+.header {
+	height: 45px;
+	background-image: url(header.png);
+	background-repeat: repeat-x;
+	top: 0;
+}
+.container {
+	width: 930px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#controls {
+	font-weight: 400;
+	font-size: 15px;
+	li {
+		display: inline;
+		color: #fff;
+		padding-right: 20px;
+		&#logo {
+			float:left;
+			padding-top: 5px;
+			a {
+				text-decoration: none;
+				font-size: 25px;
+				line-height: 25px;
+				color: #fff;
+			}
+		}
+		&#profile_link {
+			float:right;
+			padding-top: 10px;
+			a {
+				color: #fff;
+				text-decoration: none;
+			}
+		}
+		img {
+			width: 30px;
+			height: 30px;
+			margin-top: -5px;
+			margin-right: -8px;
+		}
+	}
+}
+ul {
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 0px;
+}
+footer {
+	font-size: 12px;
+	text-align: center;
+	height: 20px;
+	position: relative;
+	margin-bottom: 10px;
+}
+.clearfooter {
+	height: 20px;
+	clear: both;
+}
+.centered_page {
+	text-align: center;
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#vine_grid {
+	width: 1050px;
+	margin-left: auto;
+	margin-right: auto;
+	li {
+		width: 200px;
+		height: 250px;
+		float:left;
+		display:inline;
+		list-style: none;
+		text-align: center;
+		padding-left: 5px;
+		padding-right: 5px;
+		img {
+			width: 200px;
+			height: 200px;
+		}
+	}
+}
+.alert {
+	background-color: #00a47a;
+	border-radius: 5px;
+	color: #fff;
+	width: 940px;
+	margin-top: 10px;
+	padding: 2px 2px 5px 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.welcome_page {
+	width: 1000px;
+	height: 500px;
+	margin-top: 20px;
+	margin-bottom: 40px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.welcome_left {
+	width: 500px;
+	height: 500px;
+	text-align: center;
+	float: left;
+	h1 {
+		padding-top: 190px;
+	}
+}
+.welcome_right {
+	background: #000;
+	width: 500px;
+	height: 500px;
+	float: right;
+}

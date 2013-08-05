@@ -1,0 +1,58 @@
+<% if @user.vines.count >= 1 %>
+<div class="profile_page">
+	<%# raise @test.to_yaml %>
+	<div class="left">
+		<%= video_tag "https://s3-us-west-2.amazonaws.com/vineline/vid.mp4", :id => "vineline", :controls => false, :autoplay => true, :autobuffer => true %>
+	</div>
+	<div class="right">
+		<div class="profile">	
+			<div id="avatar"><%= link_to(image_tag(@user.avatar), user_path(params[:id])) %></div>
+			<h2><%= @user.full_name %></h2>
+			<hr>
+			<p><%= @user.description %>
+			<p><%= (@user.location || "") %></p>
+			<hr>
+		</div>
+
+		<ul id="years">
+			<% @dates.keys.each do |year| %>
+				<li id=<%="#{year}"%>><%= year %></li>
+			<% end %>
+		</ul>
+
+		<ul id="months">
+			<% months = ['J','F','M','A','M','J','J','A','S','O','N','D'] %>
+			<% month_acc = 0 %>
+			<% months.each do |month| %>
+				<li id=<%= "m#{month_acc + 1}"%>><%= month %></li>
+				<% month_acc += 1 %>
+			<% end %>
+		</ul>
+
+		<ul id="days">
+			<% acc = 1 %>
+			<% (1..31).each do |day| %>
+				<li id=<%= "#{acc}" %>><%= day %></li>
+					<%# MOVE vine_exists highlighting into javascript, then it can easily be refreshed when month/year increments %>
+
+				<% unless acc == 11 || 21 %>
+					<br>
+				<% end %>
+				<% acc += 1 %>
+			<% end %>
+		</ul><br><br>
+		<a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="vineline">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	</div>
+
+</div>
+<% else %>
+	<div class="centered_page"><br><br><br><br><br>
+	<% if @user == current_user %>
+		<p>You have not added any vines to your timeline.</p>
+		<p>Vines are fetched from your twitter feed automatically or added manually by using the 'Add' feature.</p>
+	<% else %>
+		<p><%= @user.username %> has no vines to show.</p>
+	<% end %>
+	</div><br><br><br><br><br>
+<% end %>
