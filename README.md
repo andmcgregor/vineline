@@ -1,7 +1,7 @@
+WARNING: Code needs to be refactored. This was pre-DBC.
+
 #Vineline
 > Turn your vine videos into an interactive timeline.
-
-Note: web version currently not working due to no worker dynos on server + redis store.
 
 <http://www.vineline.io/>
 
