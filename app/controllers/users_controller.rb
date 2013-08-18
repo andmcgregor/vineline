@@ -1,9 +1,4 @@
 class UsersController < ApplicationController
-	def new
-	end
-
-	def create
-	end
 
 	def show
 		@user = User.find_by_username(params[:id])
@@ -49,15 +44,10 @@ class UsersController < ApplicationController
 			gon.vineline_count = vines.count
 			gon.dates = dates
 			@dates = dates # this exists only to know what years to print
-		gon.username1 = @user.username
+			gon.username1 = @user.username
 
 			gon.avatar = @user.avatar
-		else
-			#no vines exist
 		end
-	end
-
-	def add
 	end
 end
 

@@ -7,7 +7,7 @@ Vineline::Application.routes.draw do
   match 'sign_up' => 'users#new'
   match 'log_out' => 'sessions#destroy'
   match 'users/:username' => 'users#show'
-  match 'add' => 'users#add'
+  match 'add' => 'vines#new'
   match 'add_vine' => 'vines#create'
   match 'edit' => 'vines#edit'
 
