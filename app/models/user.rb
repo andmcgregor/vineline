@@ -1,27 +1,25 @@
 class User < ActiveRecord::Base
-  attr_accessible :provider, :uid, :username, :full_name, :location, :avatar, :description
-  has_many :vines, :dependent => :destroy, :order => 'filmed ASC'
+  attr_accessible :provider, :uid, :username, :full_name, :location, :avatar, :description, :oauth_token, :oauth_secret
+  has_many :vines, dependent: :destroy, order: 'filmed ASC'
 
-  validates :username, :uniqueness => true
+  validates :username, :full_name, :avatar, :uid, :oauth_token, :oauth_secret, presence: true
+  validates :uid, uniqueness: true
 
   def self.from_omniauth(auth)
     user = find_by_uid(auth["uid"]) || create_from_omniauth(auth)
-    user.oauth_token = auth["credentials"]["token"]
-    user.oauth_secret = auth["credentials"]["secret"]
-    user.save
+    user.update_attributes(oauth_token: auth["credentials"]["token"],
+                           oauth_secret: auth["credentials"]["secret"])
     user
   end
 
 	def self.create_from_omniauth(auth)
-	  user = User.new
-		user.provider = auth["provider"]
-		user.uid = auth["uid"]
-		user.username = auth["info"]["nickname"]
-    user.full_name = auth["info"]["name"]
-    user.location = auth["info"]["location"]
-    user.avatar = auth["info"]["image"].sub("_normal", "")
-    user.description = auth["info"]["description"]
-    user
+	  User.new(provider: auth["provider"],
+        		 uid: auth["uid"],
+        		 username: auth["info"]["nickname"],
+             full_name: auth["info"]["name"],
+             location: auth["info"]["location"],
+             avatar: auth["info"]["image"].sub("_normal", ""),
+             description: auth["info"]["description"])
 	end
 
   def twitter

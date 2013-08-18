@@ -1,6 +1,6 @@
 class Vine < ActiveRecord::Base
-  # attr_accessible :title, :body
   belongs_to :user
 
-  validates :video_url, :uniqueness => true
+  validates :url, :video_url, :thumbnail, :filmed, :user_id, presence: true
+  validates :video_url, uniqueness: true
 end

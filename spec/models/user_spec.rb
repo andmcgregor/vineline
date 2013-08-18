@@ -9,8 +9,10 @@ describe User do
     @user.should be_valid
   end
 
-  it "validates username for uniqueness" do 
-    expect { FactoryGirl.create(:user) }.to raise_error ActiveRecord::RecordInvalid
+  it "validates uid for uniqueness" do 
+    expect {
+      FactoryGirl.create(:user)
+      }.to raise_error ActiveRecord::RecordInvalid
   end
 
   context "vines" do
