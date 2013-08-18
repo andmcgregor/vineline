@@ -3,16 +3,9 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		auth = request.env["omniauth.auth"]
-		user = User.from_omniauth(auth)
-		FetchVinesWorker.perform_async(user.username)
+		user = User.from_omniauth(request.env["omniauth.auth"])
 		session[:user_id] = user.id
 		redirect_to user_path(current_user.username)
-		if user.last_pull == nil
-			flash[:notice] = "Welcome! Vines posted on your Twitter account will be added soon."
-		else
-			flash[:notice] = "Welcome back!"
-		end
 	end
 
 	def destroy

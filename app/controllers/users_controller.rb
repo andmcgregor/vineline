@@ -7,14 +7,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find_by_username(params[:id])
-		if @user.last_pull == nil || @user.last_pull < DateTime.now - 1.hour
-			FetchVinesWorker.perform_async(params[:id])
-			if current_user == @user
-				flash[:notice] = "Fetching your most recent vines. This may take a few minutes to update."
-			else
-				flash[:notice] = "Fetching @#{@user.username}'s most recent vines. This may take a few minutes to update."
-			end
-		end
+
 		if @user.vines.count >= 1
 			@most_recent = @user.vines.last.filmed
 			vines = []
