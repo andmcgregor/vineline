@@ -11,36 +11,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130518131844) do
+ActiveRecord::Schema.define(:version => 20130412141343) do
 
   create_table "users", :force => true do |t|
-    t.string   "email"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
     t.string   "full_name"
     t.string   "username"
     t.string   "avatar"
+    t.string   "description"
+    t.string   "location"
     t.string   "provider"
     t.string   "uid"
-    t.string   "description"
     t.string   "oauth_token"
     t.string   "oauth_secret"
     t.datetime "last_pull"
     t.string   "pull_upto"
-    t.string   "location"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "vines", :force => true do |t|
     t.string   "post_id"
     t.string   "url"
+    t.string   "video_url"
+    t.string   "thumbnail"
     t.string   "description"
     t.datetime "filmed"
     t.string   "location"
+    t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.string   "video_url"
-    t.string   "thumbnail"
-    t.integer  "user_id"
   end
 
 end
