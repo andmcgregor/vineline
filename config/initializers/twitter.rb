@@ -1,4 +1,4 @@
 Twitter.configure do |config|
-  config.consumer_key = ENV['twitter_key']
-  config.consumer_secret = ENV['twitter_secret']
+  config.consumer_key = ENV['VINELINE_KEY']
+  config.consumer_secret = ENV['VINELINE_SECRET']
 end
