@@ -12,15 +12,15 @@ class User < ActiveRecord::Base
     user
   end
 
-	def self.create_from_omniauth(auth)
-	  User.new(provider: auth["provider"],
-        		 uid: auth["uid"],
-        		 username: auth["info"]["nickname"],
+  def self.create_from_omniauth(auth)
+    User.new(provider: auth["provider"],
+             uid: auth["uid"],
+             username: auth["info"]["nickname"],
              full_name: auth["info"]["name"],
              location: auth["info"]["location"],
              avatar: auth["info"]["image"].sub("_normal", ""),
              description: auth["info"]["description"])
-	end
+  end
 
   def twitter
     @twitter ||= Twitter::Client.new(oauth_token: oauth_token, oauth_token_secret: oauth_secret)
